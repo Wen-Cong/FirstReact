@@ -2,6 +2,7 @@ import React from 'react'
 import Task from './Task'
 
 const Tasks = (props) => {  
+    //console.log(props.contactList);
     return (
         <div style={tasks}>
             {props.contactList.map((contact) => (

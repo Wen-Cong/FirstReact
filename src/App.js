@@ -20,15 +20,18 @@ function App() {
     setContactList(contactList.filter((contact) => (contact.id !== id)))
   }
 
-  const [contact, setcontact] = React.useState('')
-  let onAdd = () => {
-    setContactList(...contactList, contact)
+
+  let onAdd = (inputcontact) => {
+    console.log(inputcontact);
+    let newContactList = contactList.concat(inputcontact)
+    setContactList(newContactList);
+    console.log(contactList);
   }
 
   return (
     <div className="App">
       <Header onFormShow={formOnShow} formIsShown={showForm}/>
-      {showForm && (<ContactForm onAdd={onAdd} setContact={setcontact} />)}
+      {showForm && (<ContactForm onAdd={onAdd} />)}
       <Tasks className='tasks' contactList={contactList} onDelete={onDelete}/>
     </div>
   );
